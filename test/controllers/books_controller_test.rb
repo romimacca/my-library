@@ -5,8 +5,9 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     @book_params = {
       title: "Name",
       author: "Author",
-      status: "status" # [ :borrowed, :bookcase]
+      status: "borrowed" # [ :borrowed, :bookcase]
     }
+    @book =  books(:one)
   end
 
   test 'create new book' do 
@@ -23,13 +24,13 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   #   assert_response :success
   # end
 
-  # test "should create book" do
-  #   assert_difference('Book.count') do
-  #     post books_url, params: { book: { author: @book.author, borrowed_at: @book.borrowed_at, lent_to: @book.lent_to, returned_at: @book.returned_at, status: @book.status, title: @book.title } }
-  #   end
+  test "should create book" do
+    assert_difference('Book.count') do
+      post books_url, params: { book: { author: @book.author, borrowed_at: @book.borrowed_at, lent_to: @book.lent_to, returned_at: @book.returned_at, status: @book.status, title: @book.title } }
+    end
 
-  #   assert_redirected_to book_url(Book.last)
-  # end
+    assert_redirected_to book_url(Book.last)
+  end
 
   # test "should show book" do
   #   get book_url(@book)
