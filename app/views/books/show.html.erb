@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <div class="card-header">
+    <strong>Status:</strong>
+    <%= @book.status %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">  
+      <strong>Title:</strong>
+      <%= @book.title %>
+    </h5>
+    <p class="card-text">
+      <strong>Author:</strong>
+      <%= @book.author %> 
+      <br>
+      <strong>Borrowed at:</strong>
+      <%= @book.borrowed_at %>
+      <br>
+      <strong>Returned at:</strong>
+      <%= @book.returned_at %>
+      <br>
+      <strong>Lent to:</strong>
+      <%= @book.lent_to %>
+
+      <br>
+      <br>
+    <%= link_to 'Edit', edit_book_path(@book), {class:"btn btn-outline-primary"} %> 
+    <%= link_to 'Back', books_path, {class:"btn btn-outline-primary ml-2"} %>
+  </div>
+</div>
